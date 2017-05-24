@@ -14,14 +14,17 @@ module Game.State where
   describeCharacterStatus Tired = "Need. Sleep. Now."
 
   -- EXERCISE SET 2 (1/3):
-  -- data CharacterStats = ???
+  data CharacterStats = CharacterStats Int Int
 
   -- EXERCISE SET 2 (2/3):
-  -- startingStats :: CharacterStats
+  startingStats :: CharacterStats
+  startingStats = CharacterStats 100 100
 
   -- EXERCISE SET 2 (3/3):
-  -- healthOf :: CharacterStats -> Int
-  -- strengthOf :: CharacterStats -> Int
+  healthOf :: CharacterStats -> Int
+  healthOf (CharacterStats x _) = x
+  strengthOf :: CharacterStats -> Int
+  strengthOf (CharacterStats _ x) = x
 
   -- EXERCISE SET 3 (1/3):
   -- data Monster = ???

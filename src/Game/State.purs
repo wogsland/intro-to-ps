@@ -57,6 +57,7 @@ module Game.State where
   -- EXERCISE SET 5 (1/2)
   -- Define `defeats` type:
   defeats :: CharacterStats -> CharacterStats -> Boolean
+  -- implement simply:
   -- defeats (CharacterStats _ s1) (CharacterStats _ s2) = s1 > s2
 
   -- EXERCISE SET 5 (2/2)

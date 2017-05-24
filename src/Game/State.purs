@@ -2,7 +2,7 @@
 -- | workshop, you will add additional state into here to make the game
 -- | more interesting.
 module Game.State where
-  import Data.Semigroup ((<>))
+  -- import Data.Semigroup ((<>))
 
   -- EXERCISE SET 1 (1/2):
   data CharacterStatus = Content | Hungry | Tired
@@ -33,15 +33,25 @@ module Game.State where
     | Harpy CharacterStats
 
   -- EXERCISE SET 3 (2/3):
-  -- bigBadWolf :: CharacterStats
-  -- fearfulOgre :: CharacterStats
+  bigBadWolf :: Monster
+  bigBadWolf = Wolf (CharacterStats 100 100)
+  fearfulOgre :: Monster
+  fearfulOgre = Ogre (CharacterStats 10 1000)
+  screamingHarpy :: Monster
+  screamingHarpy = Harpy (CharacterStats 100 100)
 
   -- EXERCISE SET 3 (3/3):
-  -- monsterStrength :: Monster -> Int
+  monsterStrength :: Monster -> Int
+  monsterStrength (Wolf (CharacterStats _ x)) = x
+  monsterStrength (Ogre (CharacterStats _ x)) = x
+  monsterStrength (Harpy (CharacterStats _ x)) = x
 
   -- EXERCISE SET 4 (1/2)
   -- Add both playerStatus :: CharacterStatus and playerStats :: CharacterStats fields to State:
-  type State = {}
+  type State = {
+    playerStatus :: CharacterStatus,
+    playerStats :: CharacterStats
+  }
 
   -- EXERCISE SET 5 (1/2)
   -- Define `defeats` type:

@@ -7,7 +7,7 @@ module Main where
 
   import Data.Semigroup((<>))
 
-  import Game.State (State)
+  import Game.State (State, CharacterStatus(..), startingStats)
   import Game.Input (Input(Drop, Take, Look), parse)
   import Game.Driver (GAME, Game, runGame)
 

@@ -27,7 +27,10 @@ module Game.State where
   strengthOf (CharacterStats _ x) = x
 
   -- EXERCISE SET 3 (1/3):
-  -- data Monster = ???
+  data Monster =
+    Wolf CharacterStats
+    | Ogre CharacterStats
+    | Harpy CharacterStats
 
   -- EXERCISE SET 3 (2/3):
   -- bigBadWolf :: CharacterStats

@@ -15,17 +15,17 @@ module Game.State where
   describeCharacterStatus Tired = "Need. Sleep. Now."
 
   -- EXERCISE SET 2 (1/3):
-  data CharacterStats = CharacterStats Int Int
+  data CharacterStats = CharacterStats Health Strength
 
   -- EXERCISE SET 2 (2/3):
   startingStats :: CharacterStats
-  startingStats = CharacterStats 100 100
+  startingStats = CharacterStats (Health 100) (Strength 100)
 
   -- EXERCISE SET 2 (3/3):
   healthOf :: CharacterStats -> Int
-  healthOf (CharacterStats x _) = x
+  healthOf (CharacterStats (Health x) _) = x
   strengthOf :: CharacterStats -> Int
-  strengthOf (CharacterStats _ x) = x
+  strengthOf (CharacterStats _ (Strength x)) = x
 
   -- EXERCISE SET 3 (1/3):
   data Monster =
@@ -35,17 +35,17 @@ module Game.State where
 
   -- EXERCISE SET 3 (2/3):
   bigBadWolf :: Monster
-  bigBadWolf = Wolf (CharacterStats 100 100)
+  bigBadWolf = Wolf (CharacterStats (Health 100) (Strength 100))
   fearfulOgre :: Monster
-  fearfulOgre = Ogre (CharacterStats 10 1000)
+  fearfulOgre = Ogre (CharacterStats (Health 10) (Strength 1000))
   screamingHarpy :: Monster
-  screamingHarpy = Harpy (CharacterStats 100 100)
+  screamingHarpy = Harpy (CharacterStats (Health 100) (Strength 100))
 
   -- EXERCISE SET 3 (3/3):
   monsterStrength :: Monster -> Int
-  monsterStrength (Wolf (CharacterStats _ x)) = x
-  monsterStrength (Ogre (CharacterStats _ x)) = x
-  monsterStrength (Harpy (CharacterStats _ x)) = x
+  monsterStrength (Wolf (CharacterStats _ (Strength x))) = x
+  monsterStrength (Ogre (CharacterStats _ (Strength x))) = x
+  monsterStrength (Harpy (CharacterStats _ (Strength x))) = x
 
   -- EXERCISE SET 4 (1/2)
   -- Add both playerStatus :: CharacterStatus and playerStats :: CharacterStats fields to State:
@@ -64,11 +64,11 @@ module Game.State where
   -- Implement `defeats` another way with lambda:
   defeats = \c1 c2 ->
     case c1, c2 of
-      (CharacterStats _ s1), (CharacterStats _ s2) -> s1 > s2
+      (CharacterStats _ (Strength s1)), (CharacterStats _ (Strength s2)) -> s1 > s2
 
   -- EXERCISE SET 6 (1/2)
-  -- newtype Health = ???
-  -- newtype Strength = ???
+  newtype Health = Health Int
+  newtype Strength = Strength Int
 
   -- EXERCISE SET 7 (2/2)
   -- type StatsModifier = ???

@@ -17,7 +17,10 @@ module Main where
       -- EXERCISE SET 4 (1/2)
       -- Add initial values to the newly-added fields in State:
       initial :: State
-      initial = {}
+      initial = {
+        playerStatus : Tired,
+        playerStats : startingStats
+      }
 
       -- EXERCISE SET 4 (2/2)
       -- Describe the player's status and (optionally) stats.

@@ -16,7 +16,7 @@ First, you should download the contents of this repository to your computer. The
 
 ## 2. Install PureScript
 
-You should install the PureScript compiler and command-line tools.
+You should install the PureScript compiler and command-line tools. (Not sure how to get around `-g` here)
 
 ```
 npm install -g purescript
@@ -27,7 +27,7 @@ npm install -g purescript
 Pulp is a build tool for PureScript that makes it easy to build projects.
 
 ```
-npm install -g pulp
+npm install pulp
 ```
 
 ## 4. Install Bower
@@ -35,7 +35,7 @@ npm install -g pulp
 Bower can download PureScript dependencies.
 
 ```
-npm install -g bower
+npm install bower
 ```
 
 ## 5. Install PureScript Dependencies
@@ -43,7 +43,7 @@ npm install -g bower
 This installs the PureScript dependencies specified in `bower.json`.
 
 ```bash
-bower install
+./node_modules/bower/bin/bower install
 ```
 
 ## 6. Compile with PureScript
@@ -51,7 +51,7 @@ bower install
 This runs the build process, which will generate a `game.js`.
 
 ```bash
-pulp build --to game.js
+node ./node_modules/pulp/pulp.js build --to game.js
 ```
 
 ## 7. Open HTML to Run Game

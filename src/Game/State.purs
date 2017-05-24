@@ -5,10 +5,13 @@ module Game.State where
   import Data.Semigroup ((<>))
 
   -- EXERCISE SET 1 (1/2):
-  -- data CharacterStatus = ???
+  data CharacterStatus = Content | Hungry | Tired
 
   -- EXERCISE SET 1 (2/2):
-  -- describeCharacterStatus :: CharacterStatus -> String
+  describeCharacterStatus :: CharacterStatus -> String
+  describeCharacterStatus Content = "Smiley as a clam"
+  describeCharacterStatus Hungry = "Ready to kill something and eat it"
+  describeCharacterStatus Tired = "Need. Sleep. Now."
 
   -- EXERCISE SET 2 (1/3):
   -- data CharacterStats = ???

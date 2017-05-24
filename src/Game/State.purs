@@ -2,6 +2,7 @@
 -- | workshop, you will add additional state into here to make the game
 -- | more interesting.
 module Game.State where
+  import Prelude
   -- import Data.Semigroup ((<>))
 
   -- EXERCISE SET 1 (1/2):
@@ -55,11 +56,14 @@ module Game.State where
 
   -- EXERCISE SET 5 (1/2)
   -- Define `defeats` type:
-  -- defeats :: ???
+  defeats :: CharacterStats -> CharacterStats -> Boolean
+  -- defeats (CharacterStats _ s1) (CharacterStats _ s2) = s1 > s2
 
   -- EXERCISE SET 5 (2/2)
-  -- Implement `defeats` with lambda:
-  -- defeats = ???
+  -- Implement `defeats` another way with lambda:
+  defeats = \c1 c2 ->
+    case c1, c2 of
+      (CharacterStats _ s1), (CharacterStats _ s2) -> s1 > s2
 
   -- EXERCISE SET 6 (1/2)
   -- newtype Health = ???
